@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>humss</title>
+  <style>
+
+    body {
+      margin: 0px;
+      font-family: Arial, sans-serif;
+      background-color: #56c596;
+    }
+    .header {
+      display: flex;
+      justify-content: space-around;
+      background-color: #466983;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+    .logo {
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .n_and_y {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+    }
+    .schoolname {
+      font-size: 40px;
+      font-weight: bolder  ;
+      margin-bottom: none;
+      padding-bottom: 0%;
+    }
+    .schoolhigh {
+      font-size: 30px;
+      font-weight: bolder  ;
+      margin-bottom: none;
+      padding-bottom: 0%;
+    }
+    .schoolyear {
+      font-size: 20px;
+      font-weight: bold  ;
+      font-style: italic;
+      margin-top: none;
+    }
+
+    .main_button {
+      display: flex;
+      height: 50px;
+      
+    }
+
+    .strand,
+    .award,
+    .adviser,
+    .memories {
+      font-size: 20px;
+      font-style: italic;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      width: 25%;
+      background-color: #329d9c;
+      border-style: solid;
+    }
+
+    .display {
+      display: flex;
+      flex-direction: column;
+      background-color: #56c596;
+      align-items: center;
+    }
+
+    .strand_name {
+      font-size: 40px;
+      font-weight: bold;
+      font-style: italic;
+      margin-top: 20px;
+      background-color: aliceblue;
+      padding: 5px;
+      box-shadow: 10px 10px 15px rgba(3, 3, 3, 0.5),  -10px -10px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .humss_students {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .student_div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      padding-bottom: 0px;
+      margin: 30px;
+      border-radius: 5px;
+      background-color: rgb(211, 225, 240);
+      box-shadow: 10px 10px 15px rgba(3, 3, 3, 0.5),  -10px -10px 15px rgba(0, 0, 0, 0.5);
+    }
+    .student_image {
+      height: 200px;
+      padding: 3px;
+      cursor: pointer;
+
+    }
+    .student_name {
+      font-size: 12px;
+    }
+   
+    .share_button {
+      font-size: 25px;
+      font-style: italic;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      width: 200px;
+      background-color: #329d9c;
+      border-style: solid;
+    }
+
+    /*--------------for modal purpose only--------------*/
+
+    /* Thumbnail styling */
+    .thumbnail {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal Background (Ensure it's hidden by default) */
+    .modal {
+      display: none;  /* FIX: Hide modal initially */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Expanded Image */
+    .expanded-img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Close Button */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /*------------------------responsive style max width 324------------------------*/
+    
+    @media (max-width: 324px) {
+      body {
+        width: 100%;
+      }
+      .header {
+        padding-bottom: 3px;
+        padding-top: 3px;
+      }
+      .logo {
+      height: 50px;
+      border-radius: 50%;
+      }
+      .schoolname {
+        font-size: 12px;
+      }
+      .schoolhigh {
+        font-size: 10px;
+      }
+      .schoolyear {
+        font-size: 8px;
+      }
+      .main_button {
+        height: 20px; 
+      }
+      .strand,
+      .award,
+      .adviser,
+      .memories {
+        font-size: 12px;
+        border: 1px;
+        border-style: solid;
+      }
+      .strand_name {
+        font-size: 10px;
+        margin-top: 8px;
+        padding: 2px;
+        box-shadow: 5px 5px 9px rgba(3, 3, 3, 0.5),  -5px -5px 9px rgba(0, 0, 0, 0.5);
+      }
+      .student_div {
+        padding: 4px;
+        padding-bottom: 0px;
+        margin: 5px;
+        margin-bottom: 8px;
+        border-radius: 2px;
+        background-color: rgb(211, 225, 240);
+        box-shadow: 5px 5px 9px rgba(3, 3, 3, 0.5),  -5px -5px 9px rgba(0, 0, 0, 0.5);
+      }
+      .student_image {
+        height: 90px;
+        padding: 2px;
+        cursor: pointer;
+
+      }
+      .student_name {
+        font-size: 8px;
+      }
+      
+      .share_button {
+        font-size: 11px;
+        width: 60px;
+        border: 1px;
+        border-style: solid;
+      }
+    }
+
+      /*------------------------responsive style max width 445------------------------*/
+
+      @media (min-width: 325px) and (max-width: 445px) {
+        .header {
+        padding-bottom: 5px;
+        padding-top: 5px;
+      }
+      .logo {
+      height: 60px;
+      border-radius: 50%;
+      }
+      .schoolname {
+        font-size: 15px;
+      }
+      .schoolhigh {
+        font-size: 13px;
+      }
+      .schoolyear {
+        font-size: 11px;
+      }
+      .main_button {
+        height: 25px; 
+      }
+      .strand,
+      .award,
+      .adviser,
+      .memories {
+        font-size: 12px;
+        border: 1px;
+        border-style: solid;
+      }
+      .strand_name {
+        font-size: 13px;
+        margin-top: 10px;
+        padding: 3px;
+        box-shadow: 5px 5px 9px rgba(3, 3, 3, 0.5),  -5px -5px 9px rgba(0, 0, 0, 0.5);
+      }
+      .student_div {
+        padding: 1px;
+        padding-bottom: 0px;
+        margin: 5px;
+        margin-bottom: 11px;
+        border-radius: 3px;
+        background-color: rgb(211, 225, 240);
+        box-shadow: 5px 5px 9px rgba(3, 3, 3, 0.5),  -5px -5px 9px rgba(0, 0, 0, 0.5);
+      }
+      .student_image {
+        height: 100px;
+        padding: 2px;
+        cursor: pointer;
+
+      }
+      .student_name {
+        font-size: 7px;
+      }
+  
+      .share_button {
+        font-size: 15px;
+        width: 70px;
+        border: 1px;
+        border-style: solid;
+      }
+      
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="https://i.ibb.co/G9T9DXD/abuyog-logo.jpg" alt="">
+    <div class="n_and_y">
+      <div class="schoolname">Abuyog Community College</div>
+      <div class="schoolhigh">Senior High</div>
+      <div class="schoolyear">2023-2024</div>
+    </div>
+    <img class="logo" src="https://i.ibb.co/tZdCyvZ/acc-logo.jpg" alt="">
+  </div>
+
+  <div class="main_button">
+    <button class="strand" onclick="window.location.href='index.html';">Strands</button>
+    <button class="award" onclick="window.location.href='awards.html';">Awards</button>
+    <button class="adviser" onclick="window.location.href='adviser.html'">Adviser</button>
+    <button class="memories" onclick="window.location.href='memories.html'">Memories</button>
+  </div>
+
+  <div class="display">
+    <div class="strand_name">
+      Humanities and Social Sciences
+    </div>
+    <div class="humss_students"></div>
+    <button onclick="sharePage()" class="share_button">Share</button>
+  </div>
+
+   <!---------------for modal purpose only-------------->
+   <div id="imageModal" class="modal">
+    <span class="close" onclick="closeImage()">&times;</span>
+    <img id="expandedImg" class="expanded-img">
+  </div>
+
+</body>
+
+<script>
+
+const humss = [
+  {img: "HUMSS/compressed_01 AMAHAN.jpg", name: "AMAHAN"},
+  {img: "HUMSS/compressed_02 ORIBE.jpg", name: "ORIBE"},
+  {img: "HUMSS/compressed_03 ORIBE.jpg", name: "ORIBE"},
+  {img: "HUMSS/compressed_04 ECIL.jpg", name: "ECIL"},
+  {img: "HUMSS/compressed_05 ESPLANADA.jpg", name: "ESPLANADA"},
+  {img: "HUMSS/compressed_06 UNAT.jpg", name: "UNAT"},
+  {img: "HUMSS/compressed_07 ANTIDO.jpg", name: "ANTIDO"},
+  {img: "HUMSS/compressed_08 ELMIDO.jpg", name: "ELMIDO"},
+  {img: "HUMSS/compressed_09 CANALES.jpg", name: "CANALES"},
+  {img: "HUMSS/compressed_10 CAPENA.jpg", name: "CAPENA"},
+  {img: "HUMSS/compressed_11 BUENA.jpg", name: "BUENA"},
+  {img: "HUMSS/compressed_12 PALLAR.jpg", name: "PALLAR"},
+  {img: "HUMSS/compressed_13 CABIAS.jpg", name: "CABIAS"},
+  {img: "HUMSS/compressed_14 BARQUIN.jpg", name: "BARQUIN"},
+  {img: "HUMSS/compressed_15 CUARTERO.jpg", name: "CUARTERO"},
+  {img: "HUMSS/compressed_16 ABRASALDO.jpg", name: "ABRASALDO"},
+  {img: "HUMSS/compressed_17 CACERES.jpg", name: "CACERES"},
+  {img: "HUMSS/compressed_18 ANDOR.jpg", name: "ANDOR"},
+  {img: "HUMSS/compressed_19 SUANO.jpg", name: "SUANO"},
+  {img: "HUMSS/compressed_20 FERNANDEZ.jpg", name: "FERNANDEZ"},
+  {img: "HUMSS/compressed_21 MANDIA.jpg", name: "MANDIA"},
+  {img: "HUMSS/compressed_22 BRIONES.jpg", name: "BRIONES"},
+  {img: "HUMSS/compressed_23 ALVERO.jpg", name: "ALVERO"},
+  {img: "HUMSS/compressed_24 BIGNOTEA.jpg", name: "BIGNOTEA"},
+  {img: "HUMSS/compressed_25 ALTEJAR.jpg", name: "A;TEJAR"}
+];
+
+//-------------------------share function---------------
+function sharePage() {
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        text: "Check out this page!",
+        url: window.location.href
+      })
+      .then(() => console.log("Shared successfully!"))
+      .catch((error) => console.log("Error sharing:", error));
+    } else {
+      alert("Your browser does not support Web Share API.");
+    }
+  }
+//------------------------------------------------------------
+
+
+
+let elementhumss_student = document.querySelector(".humss_students");
+rendered_image = "";
+
+for(let i = 0; i != humss.length; i++){
+    rendered_image += `
+      <div class="student_div">
+      <img class= "student_image" src="${humss[i].img}" loading="lazy" alt="refresh this website" onclick="openImage('${humss[i].img}')">
+      <h1 class= "student_name">${humss[i].name}</h1>
+      </div>
+    `
+  };
+
+elementhumss_student.innerHTML = rendered_image;
+
+// -------------for modal purpose only-------------
+
+// Function to open image modal
+function openImage(src) {
+  const modal = document.getElementById("imageModal");
+  const expandedImg = document.getElementById("expandedImg");
+
+  expandedImg.src = src;
+  modal.style.display = "flex"; // Show modal
+}
+
+// Function to close image modal
+function closeImage() {
+  document.getElementById("imageModal").style.display = "none";
+}
+
+// Ensure modal is hidden on page load (Failsafe)
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("imageModal").style.display = "none";
+});
+
+</script>
+</html>

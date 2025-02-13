@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adviser</title>
+  <link rel="stylesheet" href="adviser_style.css">
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="https://i.ibb.co/G9T9DXD/abuyog-logo.jpg" alt="">
+    <div class="n_and_y">
+      <div class="schoolname">Abuyog Community College</div>
+      <div class="schoolhigh">Senior High</div>
+      <div class="schoolyear">2023-2024</div>
+    </div>
+    <img class="logo" src="https://i.ibb.co/tZdCyvZ/acc-logo.jpg" alt="">
+  </div>
+
+  <div class="main_button">
+    <button class="strand" onclick="window.location.href='index.html';">Strands</button>
+    <button class="award" onclick="window.location.href='awards.html';">Awards</button>
+    <button class="adviser" onclick="window.location.href='adviser.html'">Adviser</button>
+    <button class="memories" onclick="window.location.href='memories.html'">Memories</button>
+  </div>
+
+  <div class="display">
+    <div class="thankyou_msg">
+      Thank you for all the support and guidance you have given to your students throughout their journey. Your dedication, encouragement, and wisdom have played a huge role in their growth and success.
+    </div>
+    <div class="display_adviser">
+      
+    </div>
+  </div>
+
+  
+</body>
+
+  <script>
+
+const list_of_adviser = [
+  {img: "male.webp", name: "adviser's name", section: "section name"},
+  {img: "female.webp", name: "adviser's name", section: "section name"},
+  {img: "male.webp", name: "adviser's name", section: "section name"},
+  {img: "female.webp", name: "adviser's name", section: "section name"},
+  {img: "male.webp", name: "adviser's name", section: "section name"},
+  {img: "female.webp", name: "adviser's name", section: "section name"},
+];
+
+
+let elementadvicer = document.querySelector(".display_adviser");
+let rendered_image = "";
+
+for(let i = 0; i != list_of_adviser.length; i++){
+  rendered_image += `
+    <div class="adviser_div">
+      <img class="adviser_image" src="${list_of_adviser[i].img}" alt="">
+      <h1 class="adviser_name">${list_of_adviser[i].name}</h1>
+      <h1 class="section_name">${list_of_adviser[i].section}</h1>
+    </div>
+  `;
+} 
+
+elementadvicer.innerHTML = rendered_image;
+
+
+  </script>
+</html>

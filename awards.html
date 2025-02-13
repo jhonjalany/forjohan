@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>awards</title>
+  <link rel="stylesheet" href="awards_style.css">
+  
+</head>
+<body>
+  <div class="header">
+    <img class="logo" src="https://i.ibb.co/G9T9DXD/abuyog-logo.jpg" alt="">
+    <div class="n_and_y">
+      <div class="schoolname">Abuyog Community College</div>
+      <div class="schoolhigh">Senior High</div>
+      <div class="schoolyear">2023-2024</div>
+    </div>
+    <img class="logo" src="https://i.ibb.co/tZdCyvZ/acc-logo.jpg" alt="">
+  </div>
+
+  <div class="main_button">
+    <button class="strand" onclick="window.location.href='index.html';">Strands</button>
+    <button class="award" onclick="window.location.href='awards.html';">Awards</button>
+    <button class="adviser" onclick="window.location.href='adviser.html'">Adviser</button>
+    <button class="memories" onclick="window.location.href='memories.html'">Memories</button>
+  </div>
+
+  <div class="display">
+    <div class="congrats_msg">
+      Congratulations on your remarkable accomplishments! Your dedication, hard work, and perseverance have truly set you apart, and we are so proud to celebrate your success.
+    </div>
+    <p class="award_section">High Honors</p>
+    <div class="high_honor"></div>
+    <p class="award_section">Honors</p>
+    <div class="honor"></div>
+    
+  </div>
+
+
+    <!-- Modal for Expanded Image -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeImage()">&times;</span>
+    <img id="expandedImg" class="expanded-img">
+  </div>
+  
+</body>
+
+  <script src="awards.js"></script>
+</html>
