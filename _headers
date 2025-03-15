@@ -1,0 +1,29 @@
+/index.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/ABM/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/HUMSS/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/STEM/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/TCL-COOKERY/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/TVL-CSS/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/videos/*
+  Cache-Control: public, max-age=31536000, immutable
